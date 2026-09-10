@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Tahoma",sans-serif;background:#f5f7fb;color:#1d2433}
+.sidebar{position:fixed;width:240px;height:100vh;padding:28px 18px;background:linear-gradient(180deg,#33206b,#17132d);color:white}
+.sidebar h1{font-size:22px;margin-bottom:35px}
+.sidebar a{display:block;color:#ddd;text-decoration:none;padding:13px;border-radius:10px;margin:7px 0}
+.sidebar a:hover{background:#4b3c88;color:white}
+.content{margin-left:240px;padding:35px;max-width:1200px}
+.cards{display:flex;gap:20px;flex-wrap:wrap}
+.card{background:white;border-radius:16px;padding:25px;min-width:220px;box-shadow:0 5px 20px #0000000d}
+.card span{display:block;color:#697386}.card b{font-size:32px;display:block;margin-top:10px}
+textarea,input{width:100%;padding:14px;border:1px solid #d7dce5;border-radius:10px;font-size:16px}
+textarea{margin:10px 0 14px}
+button{border:0;border-radius:10px;padding:11px 18px;background:#5b3cc4;color:white;font-size:15px;cursor:pointer;margin:5px 4px 5px 0}
+.button-link{display:inline-block;border-radius:10px;padding:11px 18px;background:#198754;color:white;text-decoration:none;margin:5px 0 12px}
+.secondary{background:#283044}.danger{background:#c53b4c}
+.order-card,.item,.product-row{background:white;padding:18px;border-radius:14px;margin:12px 0;box-shadow:0 4px 15px #0000000a}
+.order-head{display:flex;justify-content:space-between}
+.item{border-left:4px solid #5b3cc4}
+.product-form{display:flex;gap:10px;margin-bottom:20px}
+.product-row{display:flex;justify-content:space-between;align-items:center}
+.login-page{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#33206b,#17132d)}
+.login-card{width:min(420px,calc(100% - 32px));background:white;border-radius:18px;padding:32px;box-shadow:0 12px 35px #0005}
+.login-card h1{text-align:center;color:#33206b;margin-top:0}.login-card h2{margin-bottom:24px}
+.login-card label{display:block;margin:14px 0 6px;font-weight:bold}.login-card button{width:100%;margin:20px 0 0}
+.login-error{background:#ffe4e7;color:#a82034;padding:12px;border-radius:8px}
+.logout-button{background:transparent;padding:10px 13px;margin-top:20px;color:#ddd}
+.notice{background:#fff8df;border-left:4px solid #e0aa00;padding:16px;border-radius:10px;margin:22px 0}
+code{background:#eef1f7;padding:2px 5px;border-radius:4px}
+.plans{display:flex;gap:20px;flex-wrap:wrap}.plan-card{background:white;padding:22px;border-radius:14px;min-width:240px;box-shadow:0 4px 15px #0000000a}.muted{color:#697386}
+@media(max-width:700px){.sidebar{position:relative;width:100%;height:auto}.content{margin-left:0;padding:20px}.product-form{flex-direction:column}}
