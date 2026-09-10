@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>💳 Gói thành viên</h2>
+{% if message %}
+<div class="notice">{{ message }}</div>
+{% endif %}
+
+<div class="cards">
+  <div class="card">
+    <span>Gói hiện tại</span>
+    <b>{{ store.subscription_plan|upper }}</b>
+    <small>Trạng thái: {{ store.subscription_status }}</small>
+    {% if store.subscription_expires_at %}
+    <small>Hết hạn dự kiến: {{ store.subscription_expires_at }}</small>
+    {% endif %}
+  </div>
+</div>
+
+<h3>Chọn gói</h3>
+<div class="plans">
+  <div class="plan-card">
+    <h3>FREE</h3>
+    <p>Phân tích đơn hàngพื้นฐาน và quản lýร้านค้า</p>
+    <form method="post" action="/billing/plan">
+      <input type="hidden" name="plan" value="free">
+      <button type="submit">Chọn Free</button>
+    </form>
+  </div>
+  <div class="plan-card">
+    <h3>PRO</h3>
+    <p>Chuẩn bị cho AI nâng cao, báo cáo và tính năng mở rộng</p>
+    <form method="post" action="/billing/plan">
+      <input type="hidden" name="plan" value="pro">
+      <button type="submit">Đăng ký Pro</button>
+    </form>
+  </div>
+</div>
+<p class="muted">Phiên bản này chỉ lưu trạng thái gói, chưa thu tiền thật.</p>
+{% endblock %}

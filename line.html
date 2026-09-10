@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📱 LINE OA</h2>
+<div class="cards">
+  <div class="card">
+    <span>Trạng thái kết nối</span>
+    <b>{{ "Đã cấu hình" if channel_configured else "Chưa cấu hình" }}</b>
+  </div>
+  <div class="card">
+    <span>LINE users củaร้านนี้</span>
+    <b>{{ connected_users }}</b>
+  </div>
+  <div class="card">
+    <span>Store ID</span>
+    <b>{{ store_id }}</b>
+  </div>
+</div>
+
+<div class="notice">
+  <b>Webhook URL:</b> <code>/line/webhook</code><br>
+  ตั้งค่า <code>CHAT2ORDER_LINE_STORE_ID={{ store_id }}</code>
+  ให้ตรงกับร้านนี้ และใช้ public HTTPS URL ใน LINE Developers
+</div>
+
+<h3>Tin nhắn LINE gần đây</h3>
+{% for message in messages %}
+<div class="order-card">
+  <div class="order-head">
+    <b>{{ message.line_user_id }}</b>
+    <small>{{ message.created_at }}</small>
+  </div>
+  <p>{{ message.message_text }}</p>
+  <small>{{ message.reply_text }}</small>
+  {% if message.order_id %}
+  <br><a href="/orders">Xem đơn hàng #{{ message.order_id }}</a>
+  {% endif %}
+</div>
+{% else %}
+<p>Chưa nhận tin nhắn nào từ LINE.</p>
+{% endfor %}
+{% endblock %}

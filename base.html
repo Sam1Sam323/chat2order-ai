@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat2Order AI</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="sidebar">
+  <h1>🤖 Chat2Order</h1>
+  <a href="/">📊 Bảng điều khiển</a>
+  <a href="/analyze">💬 Phân tích tin nhắn</a>
+  <a href="/orders">📦 Đơn hàng</a>
+  <a href="/products">🛍 Sản phẩm</a>
+  <a href="/line">📱 LINE OA</a>
+  <a href="/billing">💳 Gói thành viên</a>
+   <form action="/logout" method="post">
+     <button class="logout-button" type="submit">ออกจากระบบ</button>
+   </form>
+</div>
+<main class="content">
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

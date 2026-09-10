@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🛍 Sản phẩm</h2>
+<form class="product-form" action="/products/add" method="post">
+ <input name="name" placeholder="Tên sản phẩm" required>
+ <input name="price" type="number" step="0.01" placeholder="Giá">
+ <button>➕ Thêm sản phẩm</button>
+</form>
+{% for p in products %}
+<div class="product-row">
+ <span><b>{{ p.name }}</b> — {{ p.price }}</span>
+ <form action="/products/{{ p.id }}/delete" method="post"><button class="danger">Xóa</button></form>
+</div>
+{% else %}
+<p>Chưa có sản phẩm. Hãy thử thêm áo thun, quần hoặc cà phê đá.</p>
+{% endfor %}
+{% endblock %}

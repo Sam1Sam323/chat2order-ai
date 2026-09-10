@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📊 Bảng điều khiển</h2>
+<div class="cards">
+ <div class="card"><span>📦 Đơn hàng</span><b>{{ total_orders }}</b></div>
+ <div class="card"><span>🛍 Sản phẩm</span><b>{{ total_products }}</b></div>
+ <div class="card"><span>💰 รายได้รวม</span><b>{{ "%.2f"|format(total_revenue) }}</b></div>
+ <div class="card"><span>💳 Gói thành viên</span><b>{{ store.subscription_plan|upper }}</b><small>{{ store.subscription_status }}</small></div>
+</div>
+<h3>Đơn hàng gần đây</h3>
+{% for o in recent %}
+<div class="order-card">
+  <b>Đơn hàng #{{ o.id }}</b> — {{ o.status }}<br>
+  <small>{{ o.customer_message }}</small>
+</div>
+{% else %}
+<p>Chưa có đơn hàng. Hãy bắt đầu từ trang Phân tích tin nhắn.</p>
+{% endfor %}
+{% endblock %}

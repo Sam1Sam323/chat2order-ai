@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📦 Đơn hàng</h2>
+<a class="button-link" href="/orders/export">📥 Export Excel</a>
+{% for o in orders %}
+<div class="order-card">
+ <div class="order-head"><b>Đơn hàng #{{ o.id }}</b><span>{{ o.status }} · {{ "%.2f"|format(o.total_amount) }}</span></div>
+ <small>Tin nhắn: {{ o.customer_message }}</small>
+ <ul>
+ {% for item in o["items"] %}
+ <li>{{ item.product }} | Màu: {{ item.color }} | Kích thước: {{ item.size }} | Số lượng: {{ item.quantity }}</li>
+ {% endfor %}
+ </ul>
+ <form action="/orders/{{ o.id }}/delete" method="post">
+  <button class="danger">Xóa</button>
+ </form>
+</div>
+{% else %}
+<p>Chưa có đơn hàng.</p>
+{% endfor %}
+{% endblock %}

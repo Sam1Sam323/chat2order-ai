@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สมัครสมาชิก - Chat2Order AI</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="login-page">
+<main class="login-card">
+  <h1>🤖 Chat2Order</h1>
+  <h2>สมัครสมาชิก</h2>
+  {% if error %}
+  <div class="login-error">{{ error }}</div>
+  {% endif %}
+  <form method="post" action="/register">
+    <label for="username">ชื่อผู้ใช้</label>
+    <input id="username" name="username" autocomplete="username" required autofocus>
+    <label for="password">รหัสผ่าน</label>
+    <input id="password" name="password" type="password" autocomplete="new-password" required>
+    <label for="store_name">ชื่อร้านค้า</label>
+    <input id="store_name" name="store_name" value="ร้านค้าของฉัน">
+    <button type="submit">สมัครสมาชิก</button>
+  </form>
+  <p><a href="/login">มีบัญชีแล้ว? เข้าสู่ระบบ</a></p>
+</main>
+</body>
+</html>
